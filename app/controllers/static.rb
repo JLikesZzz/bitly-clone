@@ -1,5 +1,3 @@
-
-
 get '/' do
   @uri = Url.all.sort_by {|x| x[:created_at]}.reverse
   erb :"static/index"
