@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-
-require 'byebug'
-
->>>>>>> test2
 get '/' do
   @uri = Url.all.order(created_at: :desc).limit(10)
   erb :"static/index"
