@@ -18,7 +18,7 @@
   <% @uri.limit(10).each do |x| %>
   	<tr>
     	<td><a href="<%=x.long %>" target="_blank"><%=x.long%></a></td>
-    	<td><a href="/<%=x.short %>" target="_blank">http://localhost:9393/<%=x.short%></a></td> 
+    	<td><a href="/<%=x.short %>" target="_blank">https://dogebit.herokuapp.com/<%=x.short%></a></td> 
     	<td><%=x.counter%></td>
     </tr>
   <% end %>
