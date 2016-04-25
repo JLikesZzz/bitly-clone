@@ -32,7 +32,7 @@ $(document).ready(function(){
                 success: function(data){
                //setting up table data
                 var long_url = "<td>" + "<a href='" + data.long + "'>" + data.long + "</a>" + "</td>"
-                var short_url = "<td>" + "http://localhost:9393/" + data.short + "</a>" + "</td>"
+                var short_url = "<td>" + "https://dogebit.herokuapp.com/" + data.short + "</a>" + "</td>"
                  if (data.counter === undefined || data.counter === null){
                  var count = "<td>" + 0 + "</td>" 
                 }

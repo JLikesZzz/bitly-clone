@@ -10,7 +10,6 @@ validates :short, :uniqueness => true
 # before_create :shorten
 
 	def self.shorten
-		
 			letters_array = (0..9).to_a + ('a'..'z').to_a + ('A'..'Z').to_a
 			random_selection = letters_array.sample(6)
 			new_url = random_selection.join('')
