@@ -1,6 +1,6 @@
 <header style="margin-top: -100px; margin-bottom: 60;">
 <a href="http://localhost:9393/">
-<img src="http://apk-dl.com/detail/image/com.jjapp.spacedogeadventure-w250.png" alt="Doge Icon" style="width:80px;height:80px;">
+<img src="http://apk-dl.com/detail/image/com.jjapp.spacedogeadventure-w250.png" alt="Doge Icon" style="width:80px;height:80px; margin-left: 20">
 </a>
 </header>
 
@@ -15,7 +15,7 @@
     <th>Number of times Visited</th>
   </tr>
   <% if @uri %>
-  <% @uri.each do |x| %>
+  <% @uri.limit(10).each do |x| %>
   	<tr>
     	<td><a href="<%=x.long %>" target="_blank"><%=x.long%></a></td>
     	<td><a href="/<%=x.short %>" target="_blank">http://localhost:9393/<%=x.short%></a></td> 

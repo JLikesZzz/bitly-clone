@@ -8,28 +8,27 @@
 <h2> Your friendly Doge to make 'UR L'ife simpler </h2>
 
 
-<form action="/urls" method="post">
+<form action="/urls" method="post" id='answer'>
 	<input type ="text" name ="long_url" placeholder="URL" id="changeinputbox">
 	<input type="submit" value="Shorten!" id="addfont">
 </form>
 
-
 <section>
-
 <% if @url %>
 	<p>Your long URL: <%=@url.long %> </p>
 	<p>Your short URL:<a href =<%= @url.short %> target="_blank" > http://localhost:9393/<%= @url.short %></a> </p>
 <% elsif @urll == true %>
 	<p>Invalid Link!</p>
 <% end %>
-
 </section>
+
+<div id="info"></div>
 
 <article>
 <button>
   List!
 </button>
-<table class='index_table' border="1" style="width:100%">
+<table class='index_table' border="1" style="width:100%" id='full_table'>
   <tr>
     <th>Long URL</th> 
     <th>Shortened URL</th>
@@ -41,10 +40,6 @@
     	<td>http://localhost:9393/<%=x.short%></td> 
     	<td><%=x.counter%></td>
     </tr>
-  <% end %>
+    <% end %>
 </table>
 </article>
-
-<div id="footer">
-<img src="http://fleeps.com/templates/__custom/images/fleeps/fleepsfans.png" alt="fitp" style="width:150px;"> 
-</div>

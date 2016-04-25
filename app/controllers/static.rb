@@ -1,13 +1,15 @@
-get '/' do
-  @uri = Url.all.sort_by {|x| x[:created_at]}.reverse
-  erb :"static/index"
+<<<<<<< HEAD
+=======
 
+require 'byebug'
+
+>>>>>>> test2
+get '/' do
+  @uri = Url.all.order(created_at: :desc).limit(10)
+  erb :"static/index"
 end
 
 post '/urls' do
-
-# url1 = Url.shorten
-
 	text = params[:long_url]
 	regex = (/\(?(?:(http|https):\/\/)/)
   	
@@ -17,22 +19,19 @@ post '/urls' do
   		params[:long_url] = "http://" + params[:long_url]
   end
 
-  @uri = Url.all.sort_by {|x| x[:created_at]}.reverse
-  	@url = Url.new(long: params[:long_url])
-    @url.save
-  	if @url.save == true
-  		 @url
-  	erb :"static/index" 
-  	else
-  		@url=nil
-  		@urll = true
-  	erb :"static/index"
-  	end
+  url1 = Url.shorten
+  @url = Url.new(long: params[:long_url], short: url1, counter: 0)
+  
+  if @url.save 
+    @url.to_json
+  else
+  	status 400
+  end
 
 end
 
 get '/list' do
-	@uri = Url.all.sort_by {|x| x[:created_at]}.reverse
+	@uri = Url.all.order(created_at: :desc).limit(10)
 	erb :"static/index3"
 end
 
@@ -47,8 +46,7 @@ get '/:short_url' do
 	b = a.find_by(short: params[:short_url])
 		count = b.counter.to_i
 		count += 1
-		b.counter = count
-		b.save
+		b.update(counter: count)
 	redirect b.long
 end
 
