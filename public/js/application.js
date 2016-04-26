@@ -44,7 +44,7 @@ $(document).ready(function(){
                  $('.index_table tr:first').after("<tr>" + long_url + short_url + count + "</tr>");
                  },
                  error: function() {
-                    $('#info').html('<p>An error has occurred</p>');
+                    $('#info').html('<p>Invalid URL</p>');
                  },
          });
     });
